@@ -3,6 +3,7 @@ var app             = express();
 var mongoose        = require('mongoose');
 var config          = require('./config');
 var setUpController = require('./controllers/setupController');
+var apiController   = require('./controllers/apiController');
 
 // set up view engine
 app.set('view engine', 'ejs');
@@ -15,6 +16,7 @@ mongoose.connect(config.getDbConnectionString());
 
 // invoke controllers
 setUpController(app);
+apiController(app);
 
 // port
 var port = process.env.PORT || 3000;
